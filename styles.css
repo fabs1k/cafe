@@ -1,0 +1,320 @@
+
+/* Общие стили для всего сайта */
+
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+    background-color: #f5f1ea;
+    color: #3a2a1f;
+
+    /* улучшение читабельности текста */
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+
+/* Шапка сайта */
+
+#header {
+    background-color: #6b4f3f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* Навигационное меню */
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    /* чуть приятнее визуально */
+    letter-spacing: 0.2px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Основной контент */
+
+.section {
+    padding: 20px;
+
+    /* чтобы текстовые блоки не были "на всю ширину" */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ====== СЕТКА ТОВАРОВ (центрированная) ====== */
+/* Включаем Grid только там, где есть карточки */
+.section:has(.product-card) {
+    /* Центрируем весь блок секции на странице */
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+
+    /* Фиксированная ширина карточек, чтобы они не растягивались */
+    grid-template-columns: repeat(auto-fit, 350px);
+
+    gap: 20px;               /* Отступы между карточками */
+    justify-content: center; /* Центрируем всю сетку на странице */
+}
+
+
+/* Заголовок "Основное меню" растягиваем на всю ширину */
+.section:has(.product-card) h2 {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+
+/* Карточки обычные */
+
+.card {
+    background-color: white;
+    padding: 18px 22px;
+    margin: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+
+    /* улучшение текста внутри карточек */
+    line-height: 1.75;
+}
+
+
+
+/* Карточки товаров с фото */
+
+.product-card {
+    display: flex;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    margin: 0; /* Отступы убираем, ими рулит grid-gap */
+    overflow: hidden;
+    transition: transform 0.2s;
+    /* Чтобы карточки были одной высоты */
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: scale(1.02);
+}
+
+.product-card img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    flex-shrink: 0; /* Запрещаем сжимать картинку */
+}
+
+.product-info {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Центрируем контент по вертикали */
+    text-align: center;      /* Центрируем текст внутри */
+    width: 100%;             /* Занимаем всё доступное место справа от фото */
+}
+
+.product-info h3 {
+    margin: 0;
+    color: #6b4f3f;
+    text-align: center; /* Заголовок товара по центру */
+
+    /* чуть более "премиальный" вид */
+    letter-spacing: 0.3px;
+}
+
+.product-info p {
+    margin: 5px 0;
+}
+
+.price {
+    font-weight: bold;
+    color: #4a2f1f;
+    margin-top: 5px;
+}
+
+
+
+/* Таблицы меню */
+
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.menu-table th,
+.menu-table td {
+    border: 1px solid #6b4f3f;
+    padding: 10px;
+    text-align: left;
+}
+
+.menu-table th {
+    background-color: #e6d9cc;
+}
+
+
+
+/* Галерея изображений */
+
+img.gallery {
+    width: 180px;
+    margin: 10px;
+    filter: grayscale(40%);
+    border-radius: 8px;
+}
+
+img.gallery:hover {
+    filter: grayscale(0%);
+}
+
+
+
+/* Подвал сайта */
+
+footer {
+    color: #fff;
+    width: 100%;
+    background-color: #6b4f3f;
+    position: fixed; /* Подвал как приклеенный */
+    bottom: 0; /* Фиксация снизу */
+    left: 0; /* К началу слева */
+    right: 0; /* Без отступов справа */
+    height: 50px; /* Задаем высоту */
+}
+
+
+
+/* Форма обратной связи */
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #6b4f3f;
+
+    /* читабельнее ввод */
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.contact-form button {
+    background-color: #6b4f3f;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    font-weight: bold;
+    letter-spacing: 0.2px;
+}
+
+.contact-form button:hover {
+    background-color: #5a3f2f;
+}
+
+
+
+/* Заголовки */
+h2 {
+    color: #6b4f3f;
+    text-align: center;
+
+    /* красивее заголовки */
+    font-size: 30px;
+    letter-spacing: 0.4px;
+    margin: 12px 0 18px;
+}
+
+/* Акцентная линия под заголовком (простая и красивая) */
+h2::after {
+    content: "";
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #6b4f3f;
+    margin: 10px auto 0;
+    border-radius: 3px;
+}
+
+/* Нормальные абзацы в карточках/секциях */
+p {
+    margin: 10px 0;
+}
+
+/* Списки (вроде "Почему выбирают нас") делают вид аккуратнее */
+ul {
+    margin: 10px 0;
+    padding-left: 22px;
+}
+
+li {
+    margin: 6px 0;
+}
+
+
+
+/* Галерея с карточками */
+
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.gallery-card {
+    flex: 1 1 calc(33% - 10px);
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.gallery-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+.gallery-card:hover img {
+    filter: grayscale(0%);
+}
+
+.p {
+    text-align: center;
+}
