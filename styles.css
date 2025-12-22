@@ -203,7 +203,6 @@ footer {
     color: #fff;
     width: 100%;
     background-color: #6b4f3f;
-    position: fixed; /* Подвал как приклеенный */
     bottom: 0; /* Фиксация снизу */
     left: 0; /* К началу слева */
     right: 0; /* Без отступов справа */
@@ -318,3 +317,4 @@ li {
 .p {
     text-align: center;
 }
+
